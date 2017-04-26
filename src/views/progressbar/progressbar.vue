@@ -45,7 +45,7 @@
 <style>
   .progress {
     width: 100%;
-    padding: 0 40px;
+    padding: 10px 40px 20px;
   }
   .progress p {
     font-size: 14px;
