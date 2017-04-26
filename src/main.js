@@ -10,7 +10,7 @@ import 'iview/dist/styles/iview.css'
 Vue.use(iView)
 
 Vue.filter('dateFormat', function (date) {
-  var formatDate = new Date(date).toLocaleString()
+  var formatDate = new Date(date).toLocaleDateString()
   return formatDate
 })
 
