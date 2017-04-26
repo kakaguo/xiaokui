@@ -35,9 +35,7 @@
               已经施工<p>{{ part.total_elapsed }}天</p></Col>
             </Row>
             <ul>
-              <li>下面两个做成进度条</li>
-              <li>计划进度: {{ part.plan_progress }}</li>
-              <li>实际进度: {{ part.real_progress }}</li>
+              <progressbar :real="part.real_progress" :plan="part.plan_progress"></progressbar>
             </ul>
           </li>
         </ul>
@@ -111,8 +109,8 @@
   }
 
   .main-table .table {
-    text-align: center;
     font-size: 14px;
+    margin: 0 40px 15px;
   }
 
   .main-table .table p {

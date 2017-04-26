@@ -39,15 +39,27 @@
 <style>
   .progress {
     width: 100%;
+    padding: 0 40px;
+  }
+  .progress p {
+    font-size: 14px;
+  }
+  .progress-num {
+    position: relative;
+    width: 100%;
   }
   .progress-num .realNum,
   .progress-num .planNum {
     display: inline-block;
     text-align: right;
+    font-size: 16px;
   }
   .progress-num .planNum {
     position: absolute;
-    margin-top: 36px;
+    margin-top: 42px;
+  }
+  .progress-num .realNum {
+    color: #2db7f5;
   }
 
   .ivu-progress-bg {
