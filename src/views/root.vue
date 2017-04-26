@@ -16,12 +16,13 @@
         已经施工<p>{{ building.total_elapsed }}天</p></Col>
       </Row>
       <ul>
+        <progressbar :real="building.real_progress" :plan="building.plan_progress"></progressbar>
         <li>计划进度: {{ building.plan_progress }}</li>
         <li>实际进度: {{ building.real_progress }}</li>
       </ul>
       <div class="part">
         <h4 class="part-title"><i class="iconfont icon-similarproduct"></i> 分布工程</h4>
-        <span class="part-icon part-unfold" v-show="!detailShow"><i class="iconfont icon-moreunfold" @click="showDetail"></i></span>
+        <span class="part-icon part-unfold" v-show="detailShow"><i class="iconfont icon-moreunfold" @click="showDetail"></i></span>
         <span class="part-icon part-fold" v-show="detailShow"><i class="iconfont icon-less" @click="hideDetail"></i></span>
         <ul v-show="detailShow">
           <li v-for="part in building.parts">
@@ -48,6 +49,8 @@
 </template>
 
 <script>
+  import progressbar from './progressbar/progressbar.vue'
+
   export default {
     props: ['db'],
     data () {
@@ -64,7 +67,9 @@
       hideDetail () {
         this.detailShow = false
       }
-
+    },
+    components: {
+      progressbar
     }
   }
 </script>
