@@ -17,8 +17,6 @@
       </Row>
       <ul>
         <progressbar :real="building.real_progress" :plan="building.plan_progress"></progressbar>
-        <li>计划进度: {{ building.plan_progress }}</li>
-        <li>实际进度: {{ building.real_progress }}</li>
       </ul>
       <div class="part">
         <h4 class="part-title"><i class="iconfont icon-similarproduct"></i> 分布工程</h4>
