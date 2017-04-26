@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h2>热电厂二期项目</h2>
-    <input placeholder="搜索过滤建筑物名称">
+  <div class="main">
+    <h2 class="title">热电厂二期项目</h2>
+    <Input class="search" placeholder="搜索过滤建筑物名称" style="width: 100%"></Input>
     <div v-for="building in buildings">
       <h3>{{ building.name }}</h3>
       <ul>
@@ -50,4 +50,16 @@ export default {
 
 <style>
   @import "../common/css/base.css";
+  .main {
+    margin: 25px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .search input {
+    margin: 15px 0;
+    background: #f7f8f7;
+  }
 </style>
