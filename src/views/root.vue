@@ -2,6 +2,7 @@
   <div class="main">
     <h2 class="title">热电厂二期项目</h2>
     <Input class="search" placeholder="搜索过滤建筑物名称" style="width: 100%"></Input>
+    <h3 class="list"><i class="iconfont icon-viewgallery"></i> 单体建筑</h3>
     <div class="main-table" v-for="building in buildings">
       <h3 class="name">{{ building.name }}</h3>
       <Row class="table">
@@ -15,7 +16,7 @@
         <li>实际进度: {{ building.real_progress }}</li>
       </ul>
 
-      <h4>分布工程</h4>
+      <h4><i class="iconfont icon-similarproduct"></i> 分布工程</h4>
       <ul>
         <li v-for="part in building.parts">
           <Row class="table">
@@ -51,6 +52,8 @@ export default {
 
 <style>
   @import "../common/css/base.css";
+  @import '../common/css/iconfont.css';
+
   .main {
     margin: 25px;
   }
@@ -73,6 +76,7 @@ export default {
     text-align: center;
     font-size: 16px;
     font-weight: 700;
+    padding: 10px 0;
   }
   .main-table .table {
     text-align: center;
