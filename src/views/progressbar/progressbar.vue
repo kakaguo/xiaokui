@@ -2,11 +2,11 @@
   <div class="progress">
     <p>实际进度</p>
     <div class="progress-num">
-      <span class="planNum" :style="planwidth">{{ Math.floor(this.plan * 100) }}%</span>
-      <span class="realNum" :style="realwidth">{{ Math.floor(this.real * 100) }}%</span>
+      <span class="planNum" :style="planwidth">{{ planShow }}%</span>
+      <span class="realNum" :style="realwidth">{{ realShow }}%</span>
     </div>
-    <Progress class="real" :percent="Math.floor(real * 100)" hide-info></Progress>
-    <Progress class="plan" :percent="Math.floor(plan * 100)" hide-info></Progress>
+    <Progress :class="{ bggreen:realShow > planShow, bgred: realShow < planShow }" class="real" :percent="Math.floor(real * 100)" hide-info></Progress>
+    <Progress :class="{ bgblack: realShow !== planShow }" class="plan" :percent="Math.floor(plan * 100)" hide-info></Progress>
     <p>计划进度</p>
   </div>
 </template>
@@ -17,6 +17,12 @@
   import 'iview/dist/styles/iview.css'
 
   export default {
+    data () {
+      return {
+        realShow: Math.floor(this.real * 100),
+        planShow: Math.floor(this.plan * 100)
+      }
+    },
     props: {
       real: {
         type: Number
@@ -70,10 +76,17 @@
     background: none;
   }
 
-  .plan .ivu-progress-text {
-    position: absolute;
-    top: -1px;
-    border: 1px solid red;
+  .progress .bgred .ivu-progress-bg{
+    background-color: rgb(234, 87, 69);
+    z-index: 10;
+  }
+
+  .progress .bggreen .ivu-progress-bg {
+    background-color: rgb(25, 195, 166);
+  }
+
+  .progress .bgblack .ivu-progress-bg {
+    background-color: rgb(51, 71, 91);
   }
 
   .plan {
