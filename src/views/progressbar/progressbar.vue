@@ -2,8 +2,8 @@
   <div class="progress">
     <p>实际进度</p>
     <div class="progress-num">
-      <span class="realNum" :style="realwidth"></span><span>{{ Math.floor(this.real * 100) }}%</span>
-      <span class="planNum" :style="planwidth"></span><span>{{ Math.floor(this.plan * 100) }}%</span>
+      <span class="planNum" :style="planwidth">{{ Math.floor(this.plan * 100) }}%</span>
+      <span class="realNum" :style="realwidth">{{ Math.floor(this.real * 100) }}%</span>
     </div>
     <Progress class="real" :percent="Math.floor(real * 100)" hide-info></Progress>
     <Progress class="plan" :percent="Math.floor(plan * 100)" hide-info></Progress>
@@ -40,12 +40,14 @@
   .progress {
     width: 100%;
   }
-  .progress .realNum,
-  .progress .planNum {
+  .progress-num .realNum,
+  .progress-num .planNum {
     display: inline-block;
+    text-align: right;
   }
-  .progress-num {
-    position: relative;
+  .progress-num .planNum {
+    position: absolute;
+    margin-top: 36px;
   }
 
   .ivu-progress-bg {
