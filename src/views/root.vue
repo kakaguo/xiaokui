@@ -2,11 +2,11 @@
   <div class="main">
     <h2 class="title">热电厂二期项目</h2>
     <Input class="search" placeholder="搜索过滤建筑物名称" style="width: 100%"></Input>
-    <div v-for="building in buildings">
-      <h3>{{ building.name }}</h3>
+    <div class="main-table" v-for="building in buildings">
+      <h3 class="name">{{ building.name }}</h3>
       <ul>
-        <li>计划开始: {{ building.start_date }}</li>
-        <li>计划完成: {{ building.end_date }}</li>
+        <li>计划开始: {{ building.start_date | dateFormat}}</li>
+        <li>计划完成: {{ building.end_date | dateFormat}}</li>
         <li>计划工期: {{ building.total_duration }}</li>
         <li>已经施工: {{ building.total_elapsed }}</li>
 
@@ -19,8 +19,8 @@
       <ul>
         <li v-for="part in building.parts">
           <ul>
-            <li>计划开始: {{ part.start_date }}</li>
-            <li>计划完成: {{ part.end_date }}</li>
+            <li>计划开始: {{ part.start_date | dateFormat}}</li>
+            <li>计划完成: {{ part.end_date | dateFormat}}</li>
             <li>计划工期: {{ part.total_duration }}</li>
             <li>已经施工: {{ part.total_elapsed }}</li>
 
@@ -59,6 +59,11 @@ export default {
   }
 
   .search input {
+    margin: 15px 0;
+    background: #f7f8f7;
+  }
+
+  .main .main-table {
     margin: 15px 0;
     background: #f7f8f7;
   }

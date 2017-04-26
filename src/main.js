@@ -9,6 +9,11 @@ import 'iview/dist/styles/iview.css'
 
 Vue.use(iView)
 
+Vue.filter('dateFormat', function (date) {
+  var formatDate = new Date(date).toLocaleString()
+  return formatDate
+})
+
 Vue.config.productionTip = false
 
 let url = '/static/progress.json'
