@@ -1,12 +1,12 @@
 <template>
   <div class="progress">
     <p>实际进度</p>
-    <div>
-      <span class="realNum" :style="realwidth"></span><span>real</span>
-      <span class="planNum" :style="planwidth"></span><span>plan</span>
+    <div class="progress-num">
+      <span class="realNum" :style="realwidth"></span><span>{{ Math.floor(this.real * 100) }}%</span>
+      <span class="planNum" :style="planwidth"></span><span>{{ Math.floor(this.plan * 100) }}%</span>
     </div>
-    <Progress class="real" :percent="Math.floor(real * 100)"></Progress>
-    <Progress class="plan" :percent="Math.floor(plan * 100)"></Progress>
+    <Progress class="real" :percent="Math.floor(real * 100)" hide-info></Progress>
+    <Progress class="plan" :percent="Math.floor(plan * 100)" hide-info></Progress>
     <p>计划进度</p>
   </div>
 </template>
@@ -27,10 +27,10 @@
     },
     computed: {
       realwidth: function () {
-        return 'width:' + this.real * 100 + '%'
+        return 'width:' + Math.floor(this.real * 100) + '%'
       },
       planwidth: function () {
-        return this.plan * 100 + '%'
+        return 'width:' + Math.floor(this.plan * 100) + '%'
       }
     }
   }
@@ -40,10 +40,14 @@
   .progress {
     width: 100%;
   }
-  .progress .realNum {
+  .progress .realNum,
+  .progress .planNum {
     display: inline-block;
-    border: 1px solid red;
   }
+  .progress-num {
+    position: relative;
+  }
+
   .ivu-progress-bg {
     height: 15px !important;
   }
@@ -59,6 +63,6 @@
   }
 
   .plan {
-    top: -1px;
+    top: -17px;
   }
 </style>

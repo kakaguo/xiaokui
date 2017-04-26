@@ -22,7 +22,7 @@
       </ul>
       <div class="part">
         <h4 class="part-title"><i class="iconfont icon-similarproduct"></i> 分布工程</h4>
-        <span class="part-icon part-unfold" v-show="detailShow"><i class="iconfont icon-moreunfold" @click="showDetail"></i></span>
+        <span class="part-icon part-unfold" v-show="!detailShow"><i class="iconfont icon-moreunfold" @click="showDetail"></i></span>
         <span class="part-icon part-fold" v-show="detailShow"><i class="iconfont icon-less" @click="hideDetail"></i></span>
         <ul v-show="detailShow">
           <li v-for="part in building.parts">
